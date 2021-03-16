@@ -13,8 +13,9 @@ before_install:
         brew install fpc > /dev/null;
       elif [[ $TRAVIS_OS_NAME == linux ]]; then
         sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe";
+        sudo add-apt-repository "deb http://ftp.debian.org/debian experimental main contrib non-free";
         sudo apt-get update;
-        sudo apt -q install fpc;
+        sudo apt -q -t experimental install fpc;
       fi
 
 install:
