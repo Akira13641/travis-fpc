@@ -15,8 +15,8 @@ before_install:
       elif [[ $TRAVIS_OS_NAME == linux ]]; then
         wget -c https://versaweb.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%202.0.12/fpc-src_3.2.0-1_amd64.deb ;
         wget -c https://cfhcable.dl.sourceforge.net/project/lazarus/Lazarus%20Linux%20amd64%20DEB/Lazarus%202.0.12/fpc-laz_3.2.0-1_amd64.deb ;
-        apt install ./fpc-src_3.2.0-1_amd64.deb ;
-        apt install ./fpc-laz_3.2.0-1_amd64.deb ;
+        sudo apt install ./fpc-src_3.2.0-1_amd64.deb ;
+        sudo apt install ./fpc-laz_3.2.0-1_amd64.deb ;
       fi
 
 install:
