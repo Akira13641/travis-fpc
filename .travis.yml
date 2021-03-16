@@ -1,3 +1,5 @@
+language: c
+
 jobs:
   include:
   - os: linux
@@ -16,7 +18,7 @@ before_install:
       fi
 
 install:
-  - fpc -v
+  - fpc -iV
   - fpc hello.pp
   
 script:
