@@ -1,11 +1,9 @@
-language: c
-sudo: true
-dist: xenial
-
-os:
-  - linux
-  - osx
-  - windows
+jobs:
+  include:
+  - os: linux
+    dist: focal
+  - os: osx
+    osx_image: xcode12.2
 
 before_install:
     - if [[ $TRAVIS_OS_NAME == osx ]]; then
@@ -15,14 +13,10 @@ before_install:
         sudo add-apt-repository "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe";
         sudo apt-get update;
         sudo apt -q install fpc;
-      else
-        wget -q ftp://ftp.freepascal.org/pub/fpc/snapshot/v33/i386-win32/fpc-3.3.1.i386-win32.zip;
-        mkdir fpc;
-        unzip -q -d fpc fpc-3.3.1.i386-win32.zip;
-        export PATH="$PATH":"$PWD/fpc/bin/i386-win32/";
       fi
 
 install:
+  - fpc -v
   - fpc hello.pp
   
 script:
